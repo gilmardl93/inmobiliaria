@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('paterno');
             $table->string('materno');
             $table->string('nombres');
+            $table->dateTime('fecha_hora');
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

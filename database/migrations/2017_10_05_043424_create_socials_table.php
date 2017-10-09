@@ -13,8 +13,10 @@ class CreateSocialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('socials', function (Blueprint $table) {
+        Schema::create('social', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('facebook');
+            $table->string('twitter');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateSocialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('socials');
+        Schema::dropIfExists('social');
     }
 }

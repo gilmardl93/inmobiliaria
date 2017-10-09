@@ -13,8 +13,10 @@ class CreateSuscripcionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('suscripcions', function (Blueprint $table) {
+        Schema::create('suscripcion', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('email');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateSuscripcionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suscripcions');
+        Schema::dropIfExists('suscripcion');
     }
 }

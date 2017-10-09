@@ -13,7 +13,7 @@ class CreatePropiedadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('propiedads', function (Blueprint $table) {
+        Schema::create('propiedades', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreatePropiedadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('propiedads');
+        Schema::dropIfExists('propiedades');
     }
 }

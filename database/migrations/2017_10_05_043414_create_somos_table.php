@@ -15,6 +15,8 @@ class CreateSomosTable extends Migration
     {
         Schema::create('somos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('titulo');
+            $table->text('descripcion');
             $table->timestamps();
         });
     }

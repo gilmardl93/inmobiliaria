@@ -13,8 +13,12 @@ class CreateUbigeosTable extends Migration
      */
     public function up()
     {
-        Schema::create('ubigeos', function (Blueprint $table) {
+        Schema::create('ubigeo', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('codigo');
+            $table->string('nombre');
+            $table->string('descripcion');
+            $table->boolean('activo')->default(true);
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateUbigeosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ubigeos');
+        Schema::dropIfExists('ubigeo');
     }
 }

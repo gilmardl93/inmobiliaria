@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -16,9 +17,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $fillable = ['username', 'password', 'nombres', 'paterno', 'materno'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -28,4 +27,29 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function scopeExiste($cadenaSQL, $id)
+    {
+        return $cadenaSQL->where('id',$id);
+    }
+
+    public function getDatosAttribute()
+    {
+        return $datos = $this->paterno.' '.$this->materno.' '.$this->nombres;
+    }
+
+    public function setNombresAttribute($value)
+    {
+        $this->attributes['nombres']    = Str::upper($value);
+    }
+
+    public function setPaternoAttribute($value)
+    {
+        $this->attributes['paterno']    = Str::upper($value);
+    }
+
+    public function setMaternoAttribute($value)
+    {
+        $this->attributes['materno']    = Str::upper($value);
+    }
 }
