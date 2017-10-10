@@ -15,6 +15,24 @@
                                         <span class="title">USUARIOS</span>
                                     </a>
                                 </li>
+                                <li class="nav-item start ">
+                                    <a href="{!! route('admin.ubigeo.index') !!}" class="nav-link ">
+                                        <i class="icon-bar-chart"></i>
+                                        <span class="title">UBIGEO</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start ">
+                                    <a href="{!! route('admin.categoria.index') !!}" class="nav-link ">
+                                        <i class="icon-bar-chart"></i>
+                                        <span class="title">CATEGORIA</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start ">
+                                    <a href="{!! route('admin.suscripcion.index') !!}" class="nav-link ">
+                                        <i class="icon-bar-chart"></i>
+                                        <span class="title">SUSCRIPCION</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>

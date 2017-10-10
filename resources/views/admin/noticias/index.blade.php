@@ -8,23 +8,6 @@
 @stop
 
 @section('content')
-    @if (session('success'))
-    <div class="alert alert-success alert-fill alert-close alert-dismissible fade show" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        {!! session('success') !!}          
-    </div>
-    @endif
-
-    @if (session('danger'))
-    <div class="alert alert-danger alert-fill alert-close alert-dismissible fade show" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        {!! session('danger') !!}           
-    </div>
-    @endif
 <div class="row">
     <div class="col-md-12">
    		<div class="portlet light bordered">

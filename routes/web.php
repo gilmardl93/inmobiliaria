@@ -60,6 +60,11 @@ Route::group(['namespace' => 'Page'], function(){
 		Route::get('terrenos-compras','TerrenosController@compras')->name('page.terrenos.compras');
 		Route::get('terrenos-ventas','TerrenosController@ventas')->name('page.terrenos.ventas');
 	});
+
+	Route::group(['namespace' => 'Suscripcion'], function(){
+		Route::post('suscripcion-registrar','SuscripcionController@store')->name('page.suscripcion.store');
+	});
+
 });
 
 Route::group(['namespace' => 'Login'], function(){
@@ -76,9 +81,29 @@ Route::group(['namespace' => 'Admin'], function(){
 		Route::get('usuarios-data','UserController@list')->name('admin.users.list');
 		Route::get('usuario-crear','UserController@create')->name('admin.users.create');
 		Route::post('usuario-registrar','UserController@store')->name('admin.users.store');
-		Route::get('usuario-editar','UserController@edit')->name('admin.users.edit');
+		Route::get('usuario-editar/{id}','UserController@edit')->name('admin.users.edit');
 		Route::post('usuario-actualizar','UserController@update')->name('admin.users.update');
-		Route::get('usuario-eliminar','UserController@delete')->name('admin.users.delete');
+		Route::get('usuario-eliminar/{id}','UserController@delete')->name('admin.users.delete');
+	});
+
+	Route::group(['namespace' => 'Ubigeo'], function(){
+		Route::get('ubigeo','UbigeoController@index')->name('admin.ubigeo.index');
+		Route::get('ubigeo-data','UbigeoController@list')->name('admin.ubigeo.list');
+		Route::get('ubigeo-crear','UbigeoController@create')->name('admin.ubigeo.create');
+		Route::post('ubigeo-registrar','UbigeoController@store')->name('admin.ubigeo.store');
+		Route::get('ubigeo-editar/{id}','UbigeoController@edit')->name('admin.ubigeo.edit');
+		Route::post('ubigeo-actualizar','UbigeoController@update')->name('admin.ubigeo.update');
+		Route::get('ubigeo-eliminar/{id}','UbigeoController@delete')->name('admin.ubigeo.delete');
+	});
+
+	Route::group(['namespace' => 'Categoria'], function(){
+		Route::get('categoria','CategoriaController@index')->name('admin.categoria.index');
+		Route::get('categoria-data','CategoriaController@list')->name('admin.categoria.list');
+		Route::get('categoria-crear','CategoriaController@create')->name('admin.categoria.create');
+		Route::post('categoria-registrar','CategoriaController@store')->name('admin.categoria.store');
+		Route::get('categoria-editar/{id}','CategoriaController@edit')->name('admin.categoria.edit');
+		Route::post('categoria-actualizar','CategoriaController@update')->name('admin.categoria.update');
+		Route::get('categoria-eliminar/{id}','CategoriaController@delete')->name('admin.categoria.delete');
 	});
 });
 

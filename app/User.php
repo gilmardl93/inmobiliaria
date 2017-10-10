@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['username', 'password', 'nombres', 'paterno', 'materno'];
+    protected $fillable = ['username', 'password', 'nombres', 'paterno', 'materno','fecha_hora'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -40,16 +40,16 @@ class User extends Authenticatable
 
     public function setNombresAttribute($value)
     {
-        $this->attributes['nombres']    = Str::upper($value);
+        $this->attributes['nombres']    = trim(Str::upper($value));
     }
 
     public function setPaternoAttribute($value)
     {
-        $this->attributes['paterno']    = Str::upper($value);
+        $this->attributes['paterno']    = trim(Str::upper($value));
     }
 
     public function setMaternoAttribute($value)
     {
-        $this->attributes['materno']    = Str::upper($value);
+        $this->attributes['materno']    = trim(Str::upper($value));
     }
 }

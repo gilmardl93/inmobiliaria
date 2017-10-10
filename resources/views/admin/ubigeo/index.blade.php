@@ -1,6 +1,6 @@
 @extends('layouts.admin.index')
 
-@section('titulo') USUARIOS @stop
+@section('titulo') UBIGEO @stop
 
 @section('css-style')
 {!! Html::style('admin/assets/global/plugins/datatables/datatables.min.css') !!}
@@ -31,17 +31,18 @@
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase">USUARIOS</span>
-                    <a href="{!! route('admin.users.create') !!}" class="btn dark btn-outline sbold uppercase">NUEVO</a>
+                    <span class="caption-subject bold uppercase">UBIGEO</span>
+                    <a href="{!! route('admin.ubigeo.create') !!}" class="btn dark btn-outline sbold uppercase">NUEVO</a>
                 </div>
                 <div class="tools"> </div>
             </div>
             <div class="portlet-body">
-			<table class="table table-bordered table-hover User">
+			<table class="table table-bordered table-hover Ubigeo">
 			    <thead>
 			        <tr>
-			            <th> USUARIO </th>
-			            <th> DATOS </th>
+			            <th> CODIGO </th>
+                        <th> NOMBRE </th>
+			            <th> DESCRIPCION </th>
 			            <th> ACCION </th>
 			        </tr>
 			    </thead>
@@ -61,7 +62,7 @@
 {!! Html::script('admin/assets/global/plugins/datatables/datatables.min.js') !!}
 {!! Html::script('admin/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') !!}
 <script>
-$('.User').dataTable({
+$('.Ubigeo').dataTable({
     "language": {
         "emptyTable": "No hay datos disponibles",
         "info": "Mostrando _START_ a _END_ de _TOTAL_ filas",
@@ -74,7 +75,7 @@ $('.User').dataTable({
                 { extend: 'colvis', className: 'btn dark btn-outline', text: 'Columns'}
             ],
     "bProcessing": true,
-    "sAjaxSource": '{{ url('usuarios-data') }}',
+    "sAjaxSource": '{{ url('ubigeo-data') }}',
     "pagingType": "bootstrap_full_number",
     "columnDefs": [
                 {  // set default column settings
@@ -82,23 +83,19 @@ $('.User').dataTable({
                     'targets': '_all'
                 },
                 {
-                    'targets':1,
-                    'render': function ( data, type, row ) {
-                      return row.paterno+' '+row.materno+' '+row.nombres;
-                    }
-                },
-                {
-                    'targets':2,
+                    'targets':3,
                     'render': function ( data, type, row ) {
                       return ' \
-                      <a href="usuario-editar/'+row.id+'" title="Editar"class="btn btn-icon-only green-haze" ><i class="fa fa-edit"></i></a> \
-                      <a href="usuario-eliminar/'+row.id+' " title="Eliminar"class="btn btn-icon-only red" ><i class="fa fa-trash"></i></a> \
+                      <a href="ubigeo-editar/'+row.id+'" title="Editar"class="btn btn-icon-only green-haze" ><i class="fa fa-edit"></i></a> \
+                      <a href="ubigeo-eliminar/'+row.id+' " title="Eliminar"class="btn btn-icon-only red" ><i class="fa fa-trash"></i></a> \
                       ';
                     }
                 },
             ],
     "columns": [
-            { "data": "username","defaultContent": "" },
+            { "data": "codigo","defaultContent": "" },
+            { "data": "nombre","defaultContent": "" },
+            { "data": "descripcion","defaultContent": "" },
         ],
 });
 </script>
