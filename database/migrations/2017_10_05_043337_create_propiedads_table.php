@@ -15,6 +15,41 @@ class CreatePropiedadsTable extends Migration
     {
         Schema::create('propiedades', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug');
+            $table->integer('idcategoria');
+            $table->integer('idubigeo');
+            $table->decimal('precio',10,2);
+            $table->string('titulo');
+            $table->string('imagen1');
+            $table->string('imagen2');
+            $table->string('imagen3');
+            $table->string('imagen4');
+            $table->decimal('area',10,2);
+            $table->boolean('amoblado');
+            $table->decimal('frente',10,2);
+            $table->decimal('fondo',10,2);
+            $table->decimal('area_terreno',10,2);
+            $table->decimal('area_construida',10,2);
+            $table->decimal('fondo',10,2);
+            $table->integer('banos');
+            $table->integer('antiguedad');
+            $table->string('zonificacion');
+            $table->integer('garaje');
+            $table->integer('ambientes');
+            $table->boolean('jardin');
+            $table->boolean('patio');
+            $table->boolean('tv_cable');
+            $table->boolean('comedor');
+            $table->boolean('sala');
+            $table->boolean('baño_dormitorio');
+            $table->boolean('biblioteca');
+            $table->boolean('lavanderia');
+            $table->boolean('linea_telefonica');
+            $table->boolean('estac');
+            $table->boolean('sala');
+            $table->boolean('comedor');
+            $table->text('descripcion');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

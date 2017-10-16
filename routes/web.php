@@ -105,6 +105,12 @@ Route::group(['namespace' => 'Admin'], function(){
 		Route::post('categoria-actualizar','CategoriaController@update')->name('admin.categoria.update');
 		Route::get('categoria-eliminar/{id}','CategoriaController@delete')->name('admin.categoria.delete');
 	});
+
+	Route::group(['namespace' => 'Suscripcion'], function(){
+		Route::get('suscripcion','SuscripcionController@index')->name('admin.suscripcion.index');
+		Route::get('suscripcion-data','SuscripcionController@list')->name('admin.suscripcion.list');
+		Route::get('suscripcion-eliminar/{id}','SuscripcionController@delete')->name('admin.suscripcion.delete');
+	});
 });
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
