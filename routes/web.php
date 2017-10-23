@@ -106,6 +106,66 @@ Route::group(['namespace' => 'Admin'], function(){
 		Route::get('categoria-eliminar/{id}','CategoriaController@delete')->name('admin.categoria.delete');
 	});
 
+	Route::group(['namespace' => 'Propiedades'], function(){
+		Route::get('casas','CasasController@index')->name('admin.casas.index');
+		Route::get('casas-data','CasasController@list')->name('admin.casas.list');
+		Route::get('casas-crear','CasasController@create')->name('admin.casas.create');
+		Route::post('casas-registrar','CasasController@store')->name('admin.casas.store');
+		Route::get('casas-editar/{id}','CasasController@edit')->name('admin.casas.edit');
+		Route::post('casas-actualizar','CasasController@update')->name('admin.casas.update');
+		Route::get('casas-eliminar/{id}','CasasController@delete')->name('admin.casas.delete');
+	});
+
+	Route::group(['namespace' => 'Propiedades'], function(){
+		Route::get('departamentos','DepartamentosController@index')->name('admin.departamentos.index');
+		Route::get('departamentos-data','DepartamentosController@list')->name('admin.departamentos.list');
+		Route::get('departamentos-crear','DepartamentosController@create')->name('admin.departamentos.create');
+		Route::post('departamentos-registrar','DepartamentosController@store')->name('admin.departamentos.store');
+		Route::get('departamentos-editar/{id}','DepartamentosController@edit')->name('admin.departamentos.edit');
+		Route::post('departamentos-actualizar','DepartamentosController@update')->name('admin.departamentos.update');
+		Route::get('departamentos-eliminar/{id}','DepartamentosController@delete')->name('admin.departamentos.delete');
+	});
+
+	Route::group(['namespace' => 'Propiedades'], function(){
+		Route::get('locales','LocalesController@index')->name('admin.locales.index');
+		Route::get('locales-data','LocalesController@list')->name('admin.locales.list');
+		Route::get('locales-crear','LocalesController@create')->name('admin.locales.create');
+		Route::post('locales-registrar','LocalesController@store')->name('admin.locales.store');
+		Route::get('locales-editar/{id}','LocalesController@edit')->name('admin.locales.edit');
+		Route::post('locales-actualizar','LocalesController@update')->name('admin.locales.update');
+		Route::get('locales-eliminar/{id}','LocalesController@delete')->name('admin.locales.delete');
+	});
+
+	Route::group(['namespace' => 'Propiedades'], function(){
+		Route::get('terrenos','TerrenosController@index')->name('admin.terrenos.index');
+		Route::get('terrenos-data','TerrenosController@list')->name('admin.terrenos.list');
+		Route::get('terrenos-crear','TerrenosController@create')->name('admin.terrenos.create');
+		Route::post('terrenos-registrar','TerrenosController@store')->name('admin.terrenos.store');
+		Route::get('terrenos-editar/{id}','TerrenosController@edit')->name('admin.terrenos.edit');
+		Route::post('terrenos-actualizar','TerrenosController@update')->name('admin.terrenos.update');
+		Route::get('terrenos-eliminar/{id}','TerrenosController@delete')->name('admin.terrenos.delete');
+	});
+
+	Route::group(['namespace' => 'Propiedades'], function(){
+		Route::get('playas','PlayasController@index')->name('admin.playas.index');
+		Route::get('playas-data','PlayasController@list')->name('admin.playas.list');
+		Route::get('playas-crear','PlayasController@create')->name('admin.playas.create');
+		Route::post('playas-registrar','PlayasController@store')->name('admin.playas.store');
+		Route::get('playas-editar/{id}','PlayasController@edit')->name('admin.playas.edit');
+		Route::post('playas-actualizar','PlayasController@update')->name('admin.playas.update');
+		Route::get('playas-eliminar/{id}','PlayasController@delete')->name('admin.playas.delete');
+	});
+
+	Route::group(['namespace' => 'Propiedades'], function(){
+		Route::get('oficinas','OficinasController@index')->name('admin.oficinas.index');
+		Route::get('oficinas-data','OficinasController@list')->name('admin.oficinas.list');
+		Route::get('oficinas-crear','OficinasController@create')->name('admin.oficinas.create');
+		Route::post('oficinas-registrar','OficinasController@store')->name('admin.oficinas.store');
+		Route::get('oficinas-editar/{id}','OficinasController@edit')->name('admin.oficinas.edit');
+		Route::post('oficinas-actualizar','OficinasController@update')->name('admin.oficinas.update');
+		Route::get('oficinas-eliminar/{id}','OficinasController@delete')->name('admin.oficinas.delete');
+	});
+
 	Route::group(['namespace' => 'Suscripcion'], function(){
 		Route::get('suscripcion','SuscripcionController@index')->name('admin.suscripcion.index');
 		Route::get('suscripcion-data','SuscripcionController@list')->name('admin.suscripcion.list');

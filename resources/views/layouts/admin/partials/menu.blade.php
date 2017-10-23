@@ -35,6 +35,52 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="nav-item start active open">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-home"></i>
+                                <span class="title">PROPIEDADES</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item start ">
+                                    <a href="{!! route('admin.casas.index') !!}" class="nav-link ">
+                                        <i class="icon-home"></i>
+                                        <span class="title">CASAS</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start ">
+                                    <a href="{!! route('admin.casas.index') !!}" class="nav-link ">
+                                        <i class="icon-home"></i>
+                                        <span class="title">DEPARTAMENTOS</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start ">
+                                    <a href="{!! route('admin.casas.index') !!}" class="nav-link ">
+                                        <i class="icon-home"></i>
+                                        <span class="title">LOCALES</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start ">
+                                    <a href="{!! route('admin.suscripcion.index') !!}" class="nav-link ">
+                                        <i class="icon-home"></i>
+                                        <span class="title">PLAYAS</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start ">
+                                    <a href="{!! route('admin.casas.index') !!}" class="nav-link ">
+                                        <i class="icon-home"></i>
+                                        <span class="title">OFICINAS</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start ">
+                                    <a href="{!! route('admin.casas.index') !!}" class="nav-link ">
+                                        <i class="icon-home"></i>
+                                        <span class="title">TERRENOS</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                     <!-- END SIDEBAR MENU -->
                 </div>
