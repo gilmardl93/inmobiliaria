@@ -30,7 +30,6 @@ class CreatePropiedadsTable extends Migration
             $table->decimal('fondo',10,2);
             $table->decimal('area_terreno',10,2);
             $table->decimal('area_construida',10,2);
-            $table->decimal('fondo',10,2);
             $table->integer('banos');
             $table->integer('antiguedad');
             $table->string('zonificacion');
@@ -40,14 +39,11 @@ class CreatePropiedadsTable extends Migration
             $table->boolean('patio');
             $table->boolean('tv_cable');
             $table->boolean('comedor');
-            $table->boolean('sala');
             $table->boolean('baño_dormitorio');
             $table->boolean('biblioteca');
             $table->boolean('lavanderia');
             $table->boolean('linea_telefonica');
-            $table->boolean('estac');
             $table->boolean('sala');
-            $table->boolean('comedor');
             $table->text('descripcion');
             $table->softDeletes();
             $table->timestamps();
