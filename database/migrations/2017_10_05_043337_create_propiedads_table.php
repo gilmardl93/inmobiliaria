@@ -16,9 +16,9 @@ class CreatePropiedadsTable extends Migration
         Schema::create('propiedades', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug');
+            $table->enum('estado',['VENTA','ALQUILER']);
             $table->integer('idcategoria');
             $table->integer('idubigeo');
-            $table->decimal('precio',10,2);
             $table->string('titulo');
             $table->string('imagen1');
             $table->string('imagen2');

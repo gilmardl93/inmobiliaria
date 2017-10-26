@@ -21,6 +21,14 @@ class UbigeoController extends Controller
     	return $res;
     }
 
+    public function ubigeo(Request $request)
+    {
+        $name = $request->varsearch ?:'';
+        $name = trim(strtoupper('$name'));
+        $ubigeo = Ubigeo::Obtener($name)->get();
+        return $ubigeo;
+    }
+
     public function create()
     {
     	return view('admin.ubigeo.create');
