@@ -18,7 +18,7 @@ class CasasController extends Controller
 
     public function list()
     {
-    	$list = Propiedad::all();
+    	$list = Propiedad::with('ubigeo')->get();
     	$res['data'] = $list;
     	return $res;
     }
@@ -93,7 +93,7 @@ class CasasController extends Controller
                         'sala'      => $request->sala,
                         'amoblado'      => $request->amoblado
                     ]);
-    	return redirect()->route('admin.propiedad.casas.index')->with('success','Se registro nueva propiedad');
+    	return redirect()->route('admin.casas.index')->with('success','Se registro nueva propiedad');
     }
 
     public function edit($id)
@@ -111,7 +111,8 @@ class CasasController extends Controller
 
     public function delete($id)
     {
+        date_default_timezone_set('America/Lima');
     	Propiedad::Existe($id)->delete();
-    	return redirect()->route('admin.propiedad.casas.index')->with('danger','Se elimino la propiedad');
+    	return redirect()->route('admin.casas.index')->with('danger','Se elimino la propiedad');
     }
 }

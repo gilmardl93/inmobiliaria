@@ -25,7 +25,7 @@ class RegistroRequest extends FormRequest
     {
         return [
             'titulo'    => 'required|min:3',
-            'imagen1'   => 'mimes:jpg,png,jpeg'.
+            'imagen1'   => 'required|mimes:jpg,png,jpeg',
             'area'      => 'required',
             'banos'     => 'required',
             'antiguedad'    => 'required',

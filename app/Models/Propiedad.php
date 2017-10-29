@@ -27,4 +27,19 @@ class Propiedad extends Model
     {
         $this->attributes['slug'] = Str::slug($value);
     }
+
+    public function setTituloAttribute($value)
+    {
+        $this->attributes['titulo'] = Str::upper($value);
+    }
+
+    public function setZonificacionAttribute($value)
+    {
+        $this->attributes['zonificacion'] = Str::upper($value);
+    }
+
+    public function ubigeo()
+    {
+        return $this->hasOne(Ubigeo::class,'id','idubigeo');
+    }
 }

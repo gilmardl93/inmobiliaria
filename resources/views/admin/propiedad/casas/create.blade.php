@@ -94,15 +94,15 @@
                 </div>
             </div><br>
             <div class="row">
-                <div class="col-md-8">
-                    <label>Ubigeo</label>
-                    {!!Form::select('idubigeo',$ubigeo ,null , ['class'=>'form-control']);!!}
-                </div>
                 <div class="col-md-2">
                     {!! Field::text('area') !!}
                 </div>
                 <div class="col-md-2">
                     {!! Field::text('zonificacion') !!}
+                </div>
+                <div class="col-md-8">
+                    <label>Ubigeo</label>
+                    {!! Form::select('idubigeo',[],null , ['id' => 'Ubigeo','class'=>'form-control']);!!}
                 </div>
             </div>
             <br>
@@ -176,7 +176,6 @@
                 </div>
             </div>
             
-            
             {!! Form::submit('REGISTRAR', ['class' => 'btn blue btn-outline sbold uppercase']) !!}
             {!! Form::close() !!}
 			</div>
@@ -188,6 +187,7 @@
 @section('js-script')
 {!! Html::script('admin/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js') !!}
 {!! Html::script('admin/assets/global/plugins/select2/js/select2.full.min.js') !!}
+{!! Html::script('admin/assets/global/plugins/select2/js/i18n/es.js') !!}
 {!! Html::script('admin/assets/global/plugins/bootstrap-summernote/summernote.min.js') !!}
 {!! Html::script('admin/assets/pages/scripts/components-editors.min.js') !!}
 <script type="text/javascript">
@@ -213,7 +213,7 @@
                 },
                 cache: true
             },
-            placeholder : 'Seleccione el ubigeo: ejemplo LIMA',
+            placeholder : 'Seleccione el distrito del participante: ejemplo LIMA',
             minimumInputLength: 3,
             templateResult: format,
             templateSelection: format,
@@ -221,6 +221,7 @@
                 return markup;
             } // let our custom formatter work
         });
+
         function format(res){
             var markup=res.text;
             return markup;
