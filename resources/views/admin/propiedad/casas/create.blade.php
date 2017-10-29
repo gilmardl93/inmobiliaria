@@ -6,6 +6,7 @@
 {!! Html::style('admin/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css') !!}
 {!! Html::style('admin/assets/global/plugins/select2/css/select2.min.css') !!}
 {!! Html::style('admin/assets/global/plugins/select2/css/select2-bootstrap.min.css') !!}
+{!! Html::style('admin/assets/global/plugins/bootstrap-summernote/summernote.css') !!}
 @stop
 
 @section('content')
@@ -21,10 +22,17 @@
                 <div class="tools"> </div>
             </div>
             <div class="portlet-body">
-			{!! Form::open(['method' => 'POST', 'route' => 'admin.casas.store']) !!}
+			{!! Form::open(['method' => 'POST', 'route' => 'admin.casas.store', 'files' => true]) !!}
             <div class="row">
                 <div class="col-md-12">
-                    {!! Field::text('nombre') !!}
+                    <label>Tipo</label>
+                    {!! Form::select('estado', ['VENTA' => 'VENTA', 'ALQUILER' => 'ALQUILER'], null, ['class' => 'form-control']) !!}
+                </div> 
+                <div class="col-md-12">
+                    {!! Field::text('titulo') !!}
+                </div>
+                <div class="col-md-12">
+                    {!! Field::textarea('nombre',['class' => 'summernote', 'id' => 'summernote_1']) !!}
                 </div>
             </div>
             <div class="row">
@@ -86,12 +94,87 @@
                 </div>
             </div><br>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8">
                     <label>Ubigeo</label>
-                    {!!Form::select('idubigeo',[] ,null , ['id'=>'Ubigeo','class'=>'form-control']);!!}
+                    {!!Form::select('idubigeo',$ubigeo ,null , ['class'=>'form-control']);!!}
+                </div>
+                <div class="col-md-2">
+                    {!! Field::text('area') !!}
+                </div>
+                <div class="col-md-2">
+                    {!! Field::text('zonificacion') !!}
                 </div>
             </div>
             <br>
+            <div class="row">
+                <div class="col-md-3">
+                    {!! Field::text('frente') !!}
+                </div>
+                <div class="col-md-3">
+                    {!! Field::text('fondo') !!}
+                </div>
+                <div class="col-md-3">
+                    {!! Field::text('area_construida') !!}
+                </div>
+                <div class="col-md-3">
+                    {!! Field::text('area_terreno') !!}
+                </div>
+                <div class="col-md-3">
+                    {!! Field::text('banos',null,['label' => 'Baños']) !!}
+                </div>
+                <div class="col-md-3">
+                    {!! Field::text('antiguedad') !!}
+                </div>
+                <div class="col-md-3">
+                    {!! Field::text('garaje') !!}
+                </div>
+                <div class="col-md-3">
+                    {!! Field::text('ambientes') !!}
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-3">
+                    {!! Form::checkbox('jardin') !!}
+                    <label>Jardin</label>
+                </div>
+                <div class="col-md-3">
+                    {!! Form::checkbox('patio') !!}
+                    <label>Patio</label>
+                </div>
+                <div class="col-md-3">
+                    {!! Form::checkbox('tv_cable') !!}
+                    <label>TV Cable</label>
+                </div>
+                <div class="col-md-3">
+                    {!! Form::checkbox('comedor') !!}
+                    <label>Comedor</label>
+                </div>
+                <div class="col-md-3">
+                    {!! Form::checkbox('bano_dormitorio') !!}
+                    <label>Baño en dormitorio</label>
+                </div>
+                <div class="col-md-3">
+                    {!! Form::checkbox('biblioteca') !!}
+                    <label>Biblioteca</label>
+                </div>
+                <div class="col-md-3">
+                    {!! Form::checkbox('lavanderia') !!}
+                    <label>Lavanderia</label>
+                </div>
+                <div class="col-md-3">
+                    {!! Form::checkbox('linea_telefonica') !!}
+                    <label>Linea Telefonica</label>
+                </div>
+                <div class="col-md-3">
+                    {!! Form::checkbox('sala') !!}
+                    <label>Sala</label>
+                </div>
+                <div class="col-md-3">
+                    {!! Form::checkbox('amoblado') !!}
+                    <label>Amoblado</label>
+                </div>
+            </div>
             
             
             {!! Form::submit('REGISTRAR', ['class' => 'btn blue btn-outline sbold uppercase']) !!}
@@ -105,6 +188,8 @@
 @section('js-script')
 {!! Html::script('admin/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js') !!}
 {!! Html::script('admin/assets/global/plugins/select2/js/select2.full.min.js') !!}
+{!! Html::script('admin/assets/global/plugins/bootstrap-summernote/summernote.min.js') !!}
+{!! Html::script('admin/assets/pages/scripts/components-editors.min.js') !!}
 <script type="text/javascript">
     $(document).ready(function() {
         $("#Ubigeo").select2({

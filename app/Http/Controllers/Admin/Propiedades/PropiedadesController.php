@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Propiedades;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Propiedad;
+use App\Models\Ubigeo;
 
 class PropiedadesController extends Controller
 {
@@ -22,7 +23,8 @@ class PropiedadesController extends Controller
 
     public function create()
     {
-    	return view('admin.propiedad.create');
+        $ubigeo = Ubigeo::pluck('descripcion','id');
+    	return view('admin.propiedad.create', compact('ubigeo'));
     }
 
     public function store(RegistrarRequest $request)
