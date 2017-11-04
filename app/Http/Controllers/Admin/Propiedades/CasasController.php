@@ -71,7 +71,7 @@ class CasasController extends Controller
                         'imagen2'   => $imagen2,
                         'imagen3'   => $imagen3,
                         'imagen4'   => $imagen4,
-                        'idubigeo'  => $request->idubigeo,
+                        'idubigeo'  => 1,
                         'frente'    => $request->frente,
                         'fondo'     => $request->fondo,
                         'area'      => $request->area,
@@ -91,7 +91,8 @@ class CasasController extends Controller
                         'lavanderia'    => $request->lavanderia,
                         'linea_telefonica'  => $request->linea_telefonica,
                         'sala'      => $request->sala,
-                        'amoblado'      => $request->amoblado
+                        'amoblado'      => $request->amoblado,
+                        'descripcion'   => $request->descripcion
                     ]);
     	return redirect()->route('admin.casas.index')->with('success','Se registro nueva propiedad');
     }
@@ -105,7 +106,37 @@ class CasasController extends Controller
     public function update(Request $request)
     {
         date_default_timezone_set('America/Lima');
-    	Propiedad::Existe($request->id)->update(['nombre' => $request->nombre]);	
+    	Propiedad::Existe($request->id)->update([    
+                        'estado'    => $request->estado,
+                        'slug'      => $request->titulo, 
+                        'titulo'    => $request->titulo,
+                        'imagen1'   => $imagen1,
+                        'imagen2'   => $imagen2,
+                        'imagen3'   => $imagen3,
+                        'imagen4'   => $imagen4,
+                        'idubigeo'  => 1,
+                        'frente'    => $request->frente,
+                        'fondo'     => $request->fondo,
+                        'area'      => $request->area,
+                        'area_construida'   => $request->area_construida,
+                        'area_terreno'      => $request->area_terreno,
+                        'zonificacion'     => $request->zonificacion,
+                        'banos'     => $request->banos,
+                        'antiguedad'    => $request->antiguedad,
+                        'garaje'    => $request->garaje,
+                        'ambientes' => $request->ambientes,
+                        'jardin'    => $request->jardin,
+                        'patio'     => $request->patio,
+                        'tv_cable'  => $request->tv_cable,
+                        'comedor'   => $request->comedor,
+                        'bano_dormitorio'   => $request->bano_dormitorio,
+                        'biblioteca'    => $request->biblioteca,
+                        'lavanderia'    => $request->lavanderia,
+                        'linea_telefonica'  => $request->linea_telefonica,
+                        'sala'      => $request->sala,
+                        'amoblado'      => $request->amoblado,
+                        'descripcion'   => $request->descripcion
+                    ]);
     	return redirect()->route('admin.propiedad.casas.index')->with('success','propiedad actualizada');
     }
 

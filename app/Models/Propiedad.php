@@ -14,7 +14,7 @@ class Propiedad extends Model
 
     protected $fillable =  ['slug','idcategoria','idubigeo','titulo','imagen1','imagen2','imagen3','imagen4',
                             'zonificacion','descripcion','precio','area','frente','fondo','area_terreno',
-                            'area_construida','bano','antiguedad','garaje','ambientes','jardin','patio','tv_cable',
+                            'area_construida','banos','antiguedad','garaje','ambientes','jardin','patio','tv_cable',
                             'comedor','sala','bano_dormitorio','biblioteca','lavanderia','linea_telefonica',
                             'amoblado'];
 

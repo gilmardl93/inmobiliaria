@@ -32,7 +32,7 @@
                     {!! Field::text('titulo') !!}
                 </div>
                 <div class="col-md-12">
-                    {!! Field::textarea('nombre',['class' => 'summernote', 'id' => 'summernote_1']) !!}
+                    {!! Field::textarea('descripcion',['class' => 'summernote', 'id' => 'summernote_1']) !!}
                 </div>
             </div>
             <div class="row">
