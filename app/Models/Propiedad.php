@@ -18,9 +18,46 @@ class Propiedad extends Model
                             'comedor','sala','bano_dormitorio','biblioteca','lavanderia','linea_telefonica',
                             'amoblado'];
 
+    const CASAS         = 'CASAS';
+    const DEPARTAMENTOS = 'DEPARTAMENTOS';
+    const LOCALES       = 'LOCALES';
+    const TERRENOS      = 'TERRENOS';
+    const PLAYAS        = 'PLAYAS';
+    const OFICINAS      = 'OFICINAS';
+
     public function scopeExiste($cadenaSQL, $id)
     {
     	return $cadenaSQL->where('id',$id);
+    }
+
+    public function scopeCasas($cadenaSQL)
+    {
+        return $cadenaSQL->where('tipo','CASAS')->get();
+    }
+
+    public function scopeDepartamentos($cadenaSQL)
+    {
+        return $cadenaSQL->where('tipo','DEPARTAMENTOS')->get();
+    }
+
+    public function scopeLocales($cadenaSQL)
+    {
+        return $cadenaSQL->where('tipo','LOCALES')->get();
+    }
+
+    public function scopeOficinas($cadenaSQL)
+    {
+        return $cadenaSQL->where('tipo','OFICINAS')->get();
+    }
+
+    public function scopePlayas($cadenaSQL)
+    {
+        return $cadenaSQL->where('tipo','PLAYAS')->get();
+    }
+
+    public function scopeTerrenos($cadenaSQL)
+    {
+        return $cadenaSQL->where('tipo','TERRENOS')->get();
     }
 
     public function setSlugAttribute($value)

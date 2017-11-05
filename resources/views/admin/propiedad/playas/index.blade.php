@@ -1,6 +1,6 @@
 @extends('layouts.admin.index')
 
-@section('titulo') CASAS @stop
+@section('titulo') PLAYAS @stop
 
 @section('css-style')
 {!! Html::style('admin/assets/global/plugins/datatables/datatables.min.css') !!}
@@ -15,8 +15,8 @@
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase">CASAS</span>
-                    <a href="{!! route('admin.casas.create') !!}" class="btn dark btn-outline sbold uppercase">NUEVO</a>
+                    <span class="caption-subject bold uppercase">PLAYAS</span>
+                    <a href="{!! route('admin.playas.create') !!}" class="btn dark btn-outline sbold uppercase">NUEVO</a>
                 </div>
                 <div class="tools"> </div>
             </div>
@@ -64,7 +64,7 @@ $('.Categoria').dataTable({
                 { extend: 'colvis', className: 'btn dark btn-outline', text: 'Columns'}
             ],
     "bProcessing": true,
-    "sAjaxSource": '{{ url('casas-data') }}',
+    "sAjaxSource": '{{ url('playas-data') }}',
     "pagingType": "bootstrap_full_number",
     "columnDefs": [
                 {  // set default column settings
@@ -75,8 +75,8 @@ $('.Categoria').dataTable({
                     'targets':8,
                     'render': function ( data, type, row ) {
                       return ' \
-                      <a href="casas-editar/'+row.id+'" title="Editar"class="btn btn-icon-only green-haze" ><i class="fa fa-edit"></i></a> \
-                      <a href="casas-eliminar/'+row.id+' " title="Eliminar"class="btn btn-icon-only red" ><i class="fa fa-trash"></i></a> \
+                      <a href="playas-editar/'+row.id+'" title="Editar"class="btn btn-icon-only green-haze" ><i class="fa fa-edit"></i></a> \
+                      <a href="playas-eliminar/'+row.id+' " title="Eliminar"class="btn btn-icon-only red" ><i class="fa fa-trash"></i></a> \
                       ';
                     }
                 },

@@ -50,31 +50,31 @@
                                     </a>
                                 </li>
                                 <li class="nav-item start ">
-                                    <a href="{!! route('admin.casas.index') !!}" class="nav-link ">
+                                    <a href="{!! route('admin.departamentos.index') !!}" class="nav-link ">
                                         <i class="icon-home"></i>
                                         <span class="title">DEPARTAMENTOS</span>
                                     </a>
                                 </li>
                                 <li class="nav-item start ">
-                                    <a href="{!! route('admin.casas.index') !!}" class="nav-link ">
+                                    <a href="{!! route('admin.locales.index') !!}" class="nav-link ">
                                         <i class="icon-home"></i>
                                         <span class="title">LOCALES</span>
                                     </a>
                                 </li>
                                 <li class="nav-item start ">
-                                    <a href="{!! route('admin.suscripcion.index') !!}" class="nav-link ">
+                                    <a href="{!! route('admin.playas.index') !!}" class="nav-link ">
                                         <i class="icon-home"></i>
                                         <span class="title">PLAYAS</span>
                                     </a>
                                 </li>
                                 <li class="nav-item start ">
-                                    <a href="{!! route('admin.casas.index') !!}" class="nav-link ">
+                                    <a href="{!! route('admin.oficinas.index') !!}" class="nav-link ">
                                         <i class="icon-home"></i>
                                         <span class="title">OFICINAS</span>
                                     </a>
                                 </li>
                                 <li class="nav-item start ">
-                                    <a href="{!! route('admin.casas.index') !!}" class="nav-link ">
+                                    <a href="{!! route('admin.terrenos.index') !!}" class="nav-link ">
                                         <i class="icon-home"></i>
                                         <span class="title">TERRENOS</span>
                                     </a>

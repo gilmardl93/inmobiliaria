@@ -10,16 +10,16 @@ use App\Models\Ubigeo;
 use App\Models\Tipo;
 use Auth;
 
-class CasasController extends Controller
+class PlayasController extends Controller
 {    
     public function index()
     {
-    	return view('admin.propiedad.casas.index');
+    	return view('admin.propiedad.playas.index');
     }
 
     public function list()
     {
-    	$list = Propiedad::with('ubigeo')->casas();
+    	$list = Propiedad::with('ubigeo')->playas();
     	$res['data'] = $list;
     	return $res;
     }
@@ -27,7 +27,7 @@ class CasasController extends Controller
     public function create()
     {
         $ubigeo = Ubigeo::pluck('descripcion','id');
-    	return view('admin.propiedad.casas.create', compact(['ubigeo']));
+    	return view('admin.propiedad.playas.create', compact(['ubigeo']));
     }
 
     public function store(RegistroRequest $request)
@@ -35,7 +35,7 @@ class CasasController extends Controller
         date_default_timezone_set('America/Lima');
         if($request->hasFile('imagen1'))
         {
-            $imagen1 = $request->file('imagen1')->store('casas','public');
+            $imagen1 = $request->file('imagen1')->store('playas','public');
         }else 
         {
             $imagen1 = "noimagen.jpg";
@@ -43,7 +43,7 @@ class CasasController extends Controller
 
         if($request->hasFile('imagen2'))
         {
-            $imagen2 = $request->file('imagen2')->store('casas','public');
+            $imagen2 = $request->file('imagen2')->store('playas','public');
         }else 
         {
             $imagen2 = "noimagen.jpg";
@@ -51,7 +51,7 @@ class CasasController extends Controller
 
         if($request->hasFile('imagen3'))
         {
-            $imagen3 = $request->file('imagen3')->store('casas','public');
+            $imagen3 = $request->file('imagen3')->store('playas','public');
         }else 
         {
             $imagen3 = "noimagen.jpg";
@@ -59,14 +59,14 @@ class CasasController extends Controller
 
         if($request->hasFile('imagen4'))
         {
-            $imagen4 = $request->file('imagen4')->store('casas','public');
+            $imagen4 = $request->file('imagen4')->store('playas','public');
         }else 
         {
             $imagen4 = "noimagen.jpg";
         }
     	Propiedad::create([    
                         'estado'    => $request->estado,
-                        'tipo'      => Propiedad::CASAS,
+                        'tipo'      => Propiedad::PLAYAS,
                         'slug'      => $request->titulo, 
                         'titulo'    => $request->titulo,
                         'imagen1'   => $imagen1,
@@ -96,13 +96,13 @@ class CasasController extends Controller
                         'amoblado'      => $request->amoblado,
                         'descripcion'   => $request->descripcion
                     ]);
-    	return redirect()->route('admin.casas.index')->with('success','Se registro nueva propiedad');
+    	return redirect()->route('admin.playas.index')->with('success','Se registro nueva propiedad');
     }
 
     public function edit($id)
     {
     	$propiedad = Propiedad::Existe($id)->get();
-    	return view('admin.propiedad.casas.edit', compact('propiedad'));
+    	return view('admin.propiedad.playas.edit', compact('propiedad'));
     }
 
     public function update(Request $request)
@@ -110,7 +110,7 @@ class CasasController extends Controller
         date_default_timezone_set('America/Lima');
         if($request->hasFile('imagen1'))
         {
-            $imagen1 = $request->file('imagen1')->store('casas','public');
+            $imagen1 = $request->file('imagen1')->store('playas','public');
         }else 
         {
             $imagen1 = $request->img1;
@@ -118,7 +118,7 @@ class CasasController extends Controller
 
         if($request->hasFile('imagen2'))
         {
-            $imagen2 = $request->file('imagen2')->store('casas','public');
+            $imagen2 = $request->file('imagen2')->store('playas','public');
         }else 
         {
             $imagen2 = $request->img2;
@@ -126,7 +126,7 @@ class CasasController extends Controller
 
         if($request->hasFile('imagen3'))
         {
-            $imagen3 = $request->file('imagen3')->store('casas','public');
+            $imagen3 = $request->file('imagen3')->store('playas','public');
         }else 
         {
             $imagen3 = $request->img3;
@@ -134,7 +134,7 @@ class CasasController extends Controller
 
         if($request->hasFile('imagen4'))
         {
-            $imagen4 = $request->file('imagen4')->store('casas','public');
+            $imagen4 = $request->file('imagen4')->store('playas','public');
         }else 
         {
             $imagen4 = $request->img4;
@@ -170,13 +170,13 @@ class CasasController extends Controller
                         'amoblado'      => $request->amoblado,
                         'descripcion'   => $request->descripcion
                     ]);
-    	return redirect()->route('admin.casas.index')->with('success','La propiedad fue actualizada');
+    	return redirect()->route('admin.playas.index')->with('success','La propiedad fue actualizada');
     }
 
     public function delete($id)
     {
         date_default_timezone_set('America/Lima');
     	Propiedad::Existe($id)->delete();
-    	return redirect()->route('admin.casas.index')->with('danger','Se elimino la propiedad');
+    	return redirect()->route('admin.playas.index')->with('danger','Se elimino la propiedad');
     }
 }

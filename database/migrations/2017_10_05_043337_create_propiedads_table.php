@@ -17,6 +17,7 @@ class CreatePropiedadsTable extends Migration
             $table->increments('id');
             $table->string('slug');
             $table->enum('estado',['VENTA','ALQUILER']);
+            $table->enum('tipo',['CASAS','DEPARTAMENTOS','LOCALES','PLAYAS','TERRENOS','OFICINAS']);
             $table->integer('idubigeo');
             $table->string('titulo');
             $table->string('imagen1');
