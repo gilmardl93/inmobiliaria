@@ -28,6 +28,12 @@
                                     </a>
                                 </li>
                                 <li class="nav-item start ">
+                                    <a href="{!! route('admin.noticias.index') !!}" class="nav-link ">
+                                        <i class="icon-bar-chart"></i>
+                                        <span class="title">NOTICIAS</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start ">
                                     <a href="{!! route('admin.suscripcion.index') !!}" class="nav-link ">
                                         <i class="icon-bar-chart"></i>
                                         <span class="title">SUSCRIPCION</span>

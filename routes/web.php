@@ -21,6 +21,7 @@ require __DIR__.'/admin/categorias/categorias.route.php';
 require __DIR__.'/admin/ubigeo/ubigeo.route.php';
 require __DIR__.'/admin/suscripciones/suscripciones.route.php';
 require __DIR__.'/admin/usuarios/usuarios.route.php';
+require __DIR__.'/admin/noticias/noticias.route.php';
 
 Route::group(['namespace' => 'Page'], function(){
 	Route::group(['namespace' => 'Home'], function(){
