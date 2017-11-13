@@ -19,7 +19,7 @@ class TerrenosController extends Controller
 
     public function list()
     {
-    	$list = Propiedad::with('ubigeo')->terrenos();
+    	$list = Propiedad::terrenos();
     	$res['data'] = $list;
     	return $res;
     }
@@ -73,7 +73,7 @@ class TerrenosController extends Controller
                         'imagen2'   => $imagen2,
                         'imagen3'   => $imagen3,
                         'imagen4'   => $imagen4,
-                        'idubigeo'  => 1,
+                        'ubigeo'    => $request->ubigeo,
                         'frente'    => $request->frente,
                         'fondo'     => $request->fondo,
                         'area'      => $request->area,
@@ -147,7 +147,7 @@ class TerrenosController extends Controller
                         'imagen2'   => $imagen2,
                         'imagen3'   => $imagen3,
                         'imagen4'   => $imagen4,
-                        'idubigeo'  => 1,
+                        'ubigeo'    => $request->ubigeo,
                         'frente'    => $request->frente,
                         'fondo'     => $request->fondo,
                         'area'      => $request->area,

@@ -17,7 +17,7 @@ class Ubigeo extends Model
 
     public function scopeObtener($cadenaSQL, $data)
     {
-    	return $cadenaSQL->select('id','descripcion as text')
+    	return $cadenaSQL->select('descripcion')
                         ->where('descripcion','like',"%$data%");
     }
 }

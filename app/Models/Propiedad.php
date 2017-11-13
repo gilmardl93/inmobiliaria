@@ -12,7 +12,7 @@ class Propiedad extends Model
 	
     protected $table  = "propiedades";
 
-    protected $fillable =  ['slug','idcategoria','idubigeo','titulo','imagen1','imagen2','imagen3','imagen4',
+    protected $fillable =  ['slug','idcategoria','ubigeo','titulo','imagen1','imagen2','imagen3','imagen4',
                             'zonificacion','descripcion','precio','area','frente','fondo','area_terreno',
                             'area_construida','banos','antiguedad','garaje','ambientes','jardin','patio','tv_cable',
                             'comedor','sala','bano_dormitorio','biblioteca','lavanderia','linea_telefonica',
@@ -75,8 +75,4 @@ class Propiedad extends Model
         $this->attributes['zonificacion'] = Str::upper($value);
     }
 
-    public function ubigeo()
-    {
-        return $this->hasOne(Ubigeo::class,'id','idubigeo');
-    }
 }

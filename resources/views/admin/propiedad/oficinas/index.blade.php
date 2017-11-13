@@ -84,7 +84,7 @@ $('.Categoria').dataTable({
     "columns": [
             { "data": "titulo","defaultContent": "" },
             { "data": "estado","defaultContent": "" },
-            { "data": "ubigeo.descripcion","defaultContent": "" },
+            { "data": "ubigeo","defaultContent": "" },
             { "data": "area","defaultContent": "" },
             { "data": "area_terreno","defaultContent": "" },
             { "data": "area_construida","defaultContent": "" },

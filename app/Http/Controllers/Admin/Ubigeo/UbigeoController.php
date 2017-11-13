@@ -21,12 +21,12 @@ class UbigeoController extends Controller
     	return $res;
     }
 
-    public function ubigeo(Request $request)
+    public function ubigeo($data)
     {
-        $name = $request->varsearch ?:'';
+        $name = $data ?:'';
         $name = trim(strtoupper('$name'));
         $ubigeo = Ubigeo::Obtener($name)->get();
-        return $ubigeo;
+        return response()->json($ubigeo);
     }
 
     public function create()
