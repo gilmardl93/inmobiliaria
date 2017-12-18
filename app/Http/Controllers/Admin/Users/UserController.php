@@ -5,13 +5,20 @@ namespace App\Http\Controllers\Admin\Users;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Users\RegistrarRequest;
+use App\Models\MensajePropiedad;
+use App\Models\MensajeContacto;
+use App\Models\NegocioPropietario;
 use App\User;
 
 class UserController extends Controller
 {
     public function index()
     {
-    	return view('admin.user.index');
+        $MensajePropiedades = MensajePropiedad::orderBy('fecha_enviado', 'desc')->get();
+        $MensajeContactos   = MensajeContacto::orderBy('fecha_enviado', 'desc')->get();
+        $NegocioPropietarios= NegocioPropietario::orderBy('fecha_enviado', 'desc')->get();
+        $ListarUsuarios = 'active';
+    	return view('admin.user.index', compact(['MensajePropiedades', 'MensajeContactos', 'NegocioPropietarios', 'ListarUsuarios']));
     }
 
     public function list()
@@ -23,7 +30,11 @@ class UserController extends Controller
 
     public function create()
     {
-    	return view('admin.user.create');
+        $ListarUsuarios = 'active';
+        $MensajePropiedades = MensajePropiedad::orderBy('fecha_enviado', 'desc')->get();
+        $MensajeContactos   = MensajeContacto::orderBy('fecha_enviado', 'desc')->get();
+        $NegocioPropietarios= NegocioPropietario::orderBy('fecha_enviado', 'desc')->get();
+    	return view('admin.user.create', compact(['MensajePropiedades', 'MensajeContactos', 'NegocioPropietarios', 'ListarUsuarios']));
     }
 
     public function store(RegistrarRequest $request)
@@ -35,8 +46,12 @@ class UserController extends Controller
 
     public function edit($id)
     {
+        $ListarUsuarios = 'active';
+        $MensajePropiedades = MensajePropiedad::orderBy('fecha_enviado', 'desc')->get();
+        $MensajeContactos   = MensajeContacto::orderBy('fecha_enviado', 'desc')->get();
+        $NegocioPropietarios= NegocioPropietario::orderBy('fecha_enviado', 'desc')->get();
     	$usuario = User::Existe($id)->get();
-    	return view('admin.user.edit', compact('usuario'));
+    	return view('admin.user.edit', compact(['MensajePropiedades', 'MensajeContactos', 'usuario', 'NegocioPropietarios', 'ListarUsuarios']));
     }
 
     public function update(Request $request)

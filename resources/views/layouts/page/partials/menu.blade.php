@@ -8,7 +8,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{!! route('page.home.index') !!}"><img src="{!! asset('page/assets/img/logo.png') !!}" alt=""></a>
+                    <a class="navbar-brand" href="{!! route('page.home.index') !!}"><img src="{!! asset('page/assets/img/logo.png') !!}" width="130" height="50" alt=""></a>
                 </div>
 
                 
@@ -18,9 +18,9 @@
                         <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('{!! route('page.home.propietarios') !!}')" data-wow-delay="0.48s">PROPIETARIOS</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="wow fadeInDown" data-wow-delay="0.3s"><a class="" href="{!! route('page.home.index') !!}">INICIO</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.3s"><a class="" href="{!! route('page.home.noticias') !!}">NOTICIAS</a></li>
-                        <li class="dropdown yamm-fw" data-wow-delay="0.4s">
+                        <li class="wow fadeInDown {!! $indexActivo ?? '' !!}" data-wow-delay="0.3s"><a class="" href="{!! route('page.home.index') !!}">INICIO</a></li>
+                        <li class="wow fadeInDown {!! $noticiaActivo ?? '' !!}" data-wow-delay="0.3s"><a class="" href="{!! route('page.home.noticias') !!}">NOTICIAS</a></li>
+                        <li class="dropdown yamm-fw {!! $categoriaActivo ?? '' !!}" data-wow-delay="0.4s">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">CATEGORIAS <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -30,19 +30,19 @@
                                                 <h5>CASAS</h5>
                                                 <ul>
                                                     <li>
-                                                        <a href="{!! route('page.casas.compras') !!}">COMPRA</a>
+                                                        <a href="{!! route('page.casas.alquiler') !!}">ALQUILER</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{!! route('page.casas.ventas') !!}">VENTA </a>
+                                                        <a href="{!! route('page.casas.venta') !!}">VENTA </a>
                                                     </li>
                                                 </ul>
                                                 <h5>DEPARTAMENTOS</h5>
                                                 <ul>
                                                     <li>
-                                                        <a href="{!! route('page.departamentos.compras') !!}">COMPRA</a>
+                                                        <a href="{!! route('page.departamentos.alquiler') !!}">ALQUILER</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{!! route('page.casas.ventas') !!}">VENTA </a>
+                                                        <a href="{!! route('page.departamentos.venta') !!}">VENTA </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -50,19 +50,19 @@
                                                 <h5>OFICINAS</h5>
                                                 <ul>
                                                     <li>
-                                                        <a href="{!! route('page.oficinas.compras') !!}">COMPRA</a>
+                                                        <a href="{!! route('page.oficinas.alquiler') !!}">ALQUILER</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{!! route('page.casas.ventas') !!}">VENTA </a>
+                                                        <a href="{!! route('page.oficinas.venta') !!}">VENTA </a>
                                                     </li>
                                                 </ul>
                                                 <h5>LOCALES</h5>
                                                 <ul>
                                                     <li>
-                                                        <a href="{!! route('page.locales.compras') !!}">COMPRA</a>
+                                                        <a href="{!! route('page.locales.alquiler') !!}">ALQUILER</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{!! route('page.locales.ventas') !!}">VENTA </a>
+                                                        <a href="{!! route('page.locales.venta') !!}">VENTA </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -70,19 +70,19 @@
                                                 <h5>PLAYAS</h5>
                                                 <ul>
                                                     <li>
-                                                        <a href="{!! route('page.playas.compras') !!}">COMPRA</a>
+                                                        <a href="{!! route('page.playas.alquiler') !!}">ALQUILER</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{!! route('page.playas.ventas') !!}">VENTA </a>
+                                                        <a href="{!! route('page.playas.venta') !!}">VENTA </a>
                                                     </li>
                                                 </ul>
                                                 <h5>TERRENOS</h5>
                                                 <ul>
                                                     <li>
-                                                        <a href="{!! route('page.terrenos.compras') !!}">COMPRA</a>
+                                                        <a href="{!! route('page.terrenos.alquiler') !!}">ALQUILER</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{!! route('page.terrenos.ventas') !!}">VENTA </a>
+                                                        <a href="{!! route('page.terrenos.venta') !!}">VENTA </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -90,19 +90,19 @@
                                                 <h5>PROYECTOS</h5>
                                                 <ul>
                                                     <li>
-                                                        <a href="{!! route('page.proyectos.compras') !!}">COMPRA</a>
+                                                        <a href="{!! route('page.proyectos.alquiler') !!}">ALQUILER</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{!! route('page.proyectos.ventas') !!}">VENTA </a>
+                                                        <a href="{!! route('page.proyectos.venta') !!}">VENTA </a>
                                                     </li>
                                                 </ul>
                                                 <h5>PROPIETARIOS</h5>
                                                 <ul>
                                                     <li>
-                                                        <a href="{!! route('page.propietarios.compras') !!}">COMPRA</a>
+                                                        <a href="{!! route('page.propietarios.alquiler') !!}">ALQUILER</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{!! route('page.propietarios.ventas') !!}">VENTA </a>
+                                                        <a href="{!! route('page.propietarios.venta') !!}">VENTA </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -113,7 +113,7 @@
                             </ul>
                         </li>
 
-                        <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="{!! route('page.home.contactos') !!}">CONTACTOS</a></li>
+                        <li class="wow fadeInDown {!! $contactoActivo ?? '' !!}" data-wow-delay="0.5s"><a href="{!! route('page.home.contactos') !!}">CONTACTOS</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

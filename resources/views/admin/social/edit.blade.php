@@ -1,31 +1,29 @@
 @extends('layouts.admin.index')
 
-@section('titulo') CATEGORIAS @stop
+@section('titulo') REDES SOCIALES @stop
 
 
 @section('content')
+@include('admin.alerts.alert')
 <div class="row">
     <div class="col-md-12">
    		<div class="portlet light bordered">
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase">CATEGORIAS</span>
-                    <a href="{!! route('admin.categoria.index') !!}" class="btn red btn-outline sbold uppercase">ATRAS</a>
+                    <span class="caption-subject bold uppercase">REDES SOCIALES</span>
                 </div>
                 <div class="tools"> </div>
             </div>
             <div class="portlet-body">
-			{!! Form::open(['method' => 'POST', 'route' => 'admin.categoria.update']) !!}
-            @foreach($categoria as $row)
-            <input type="hidden" name="id" value="{!! $row->id!!}">
-            {!! Field::text('nombre', $row->nombre) !!}
+			{!! Form::open(['method' => 'POST', 'route' => 'admin.social.update']) !!}
+			{!! Form::hidden('id', $social->id) !!}
+            {!! Field::text('facebook', $social->facebook) !!}
+            {!! Field::text('twitter', $social->twitter) !!}
             {!! Form::submit('ACTUALIZAR', ['class' => 'btn blue btn-outline sbold uppercase']) !!}
-            @endforeach
             {!! Form::close() !!}
 			</div>
 		</div>
 	</div>
 </div>
 @stop
-

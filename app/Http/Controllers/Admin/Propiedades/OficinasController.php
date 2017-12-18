@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin\Propiedades;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Propiedades\RegistroRequest;
+use App\Models\MensajePropiedad;
+use App\Models\MensajeContacto;
+use App\Models\NegocioPropietario;
 use App\Models\Propiedad;
 use App\Models\Ubigeo;
 use App\Models\Tipo;
@@ -14,7 +17,11 @@ class OficinasController extends Controller
 {    
     public function index()
     {
-    	return view('admin.propiedad.oficinas.index');
+        $listarOficinas = 'active';
+        $MensajePropiedades = MensajePropiedad::orderBy('fecha_enviado', 'desc')->get();
+        $MensajeContactos   = MensajeContacto::orderBy('fecha_enviado', 'desc')->get();
+        $NegocioPropietarios= NegocioPropietario::orderBy('fecha_enviado', 'desc')->get();
+    	return view('admin.propiedad.oficinas.index', compact(['MensajePropiedades', 'MensajeContactos', 'NegocioPropietarios', 'listarOficinas']));
     }
 
     public function list()
@@ -26,8 +33,12 @@ class OficinasController extends Controller
 
     public function create()
     {
+        $listarOficinas = 'active';
+        $MensajePropiedades = MensajePropiedad::orderBy('fecha_enviado', 'desc')->get();
+        $MensajeContactos   = MensajeContacto::orderBy('fecha_enviado', 'desc')->get();
+        $NegocioPropietarios= NegocioPropietario::orderBy('fecha_enviado', 'desc')->get();
         $ubigeo = Ubigeo::pluck('descripcion','id');
-    	return view('admin.propiedad.oficinas.create', compact(['ubigeo']));
+    	return view('admin.propiedad.oficinas.create', compact(['MensajePropiedades', 'MensajeContactos', 'ubigeo', 'NegocioPropietarios', 'listarOficinas']));
     }
 
     public function store(RegistroRequest $request)
@@ -66,13 +77,18 @@ class OficinasController extends Controller
         }
     	Propiedad::create([    
                         'estado'    => $request->estado,
+                        'codigo'    => strtoupper(substr(md5($request->titulo), 0, 10)),
                         'tipo'      => Propiedad::OFICINAS,
                         'slug'      => $request->titulo, 
                         'titulo'    => $request->titulo,
+                        'precio'    => $request->precio,
                         'imagen1'   => $imagen1,
                         'imagen2'   => $imagen2,
                         'imagen3'   => $imagen3,
                         'imagen4'   => $imagen4,
+                        'bano_completo'  => $request->bano_completo,
+                        'medio_bano'     => $request->medio_bano,
+                        'dormitorios'    => $request->dormitorios,
                         'ubigeo'    => $request->ubigeo,
                         'frente'    => $request->frente,
                         'fondo'     => $request->fondo,
@@ -101,8 +117,12 @@ class OficinasController extends Controller
 
     public function edit($id)
     {
+        $listarOficinas = 'active';
+        $MensajePropiedades = MensajePropiedad::orderBy('fecha_enviado', 'desc')->get();
+        $MensajeContactos   = MensajeContacto::orderBy('fecha_enviado', 'desc')->get();
+        $NegocioPropietarios= NegocioPropietario::orderBy('fecha_enviado', 'desc')->get();
     	$propiedad = Propiedad::Existe($id)->get();
-    	return view('admin.propiedad.oficinas.edit', compact('propiedad'));
+    	return view('admin.propiedad.oficinas.edit', compact(['MensajePropiedades', 'MensajeContactos', 'propiedad', 'NegocioPropietarios', 'listarOficinas']));
     }
 
     public function update(Request $request)
@@ -143,10 +163,14 @@ class OficinasController extends Controller
                         'estado'    => $request->estado,
                         'slug'      => $request->titulo, 
                         'titulo'    => $request->titulo,
+                        'precio'    => $request->precio,
                         'imagen1'   => $imagen1,
                         'imagen2'   => $imagen2,
                         'imagen3'   => $imagen3,
                         'imagen4'   => $imagen4,
+                        'bano_completo'  => $request->bano_completo,
+                        'medio_bano'     => $request->medio_bano,
+                        'dormitorios'    => $request->dormitorios,
                         'ubigeo'    => $request->ubigeo,
                         'frente'    => $request->frente,
                         'fondo'     => $request->fondo,

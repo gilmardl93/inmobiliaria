@@ -12,7 +12,7 @@ class Noticia extends Model
 
     protected $table = "noticia";
 
-    protected $fillable = ['slug', 'titulo', 'imagen', 'descripcion'];
+    protected $fillable = ['slug', 'titulo', 'imagen', 'descripcion', 'fecha'];
 
     public function scopeExiste($cadenaSQL, $id)
     {

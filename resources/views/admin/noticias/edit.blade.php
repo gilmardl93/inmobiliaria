@@ -44,7 +44,7 @@
                 </div>
             </div>
             {!! Field::textarea('descripcion', $row->descripcion, ['class' => 'summernote', 'id' => 'summernote_1']) !!}
-            {!! Form::submit('REGISTRAR', ['class' => 'btn blue btn-outline sbold uppercase']) !!}
+            {!! Form::submit('ACTUALIZAR', ['class' => 'btn blue btn-outline sbold uppercase']) !!}
             @endforeach
             {!! Form::close() !!}
             </div>

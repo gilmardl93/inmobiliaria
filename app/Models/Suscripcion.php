@@ -9,12 +9,8 @@ class Suscripcion extends Model
 {
 	use SoftDeletes;
 
-    protected $table = "suscripcion";
+    protected $table = 'suscripcion';
 
-    protected $fillable = ['email'];
+    protected $fillable = ['email', 'datos', 'celular', 'fecha_creado'];
 
-    public function scopeExiste($cadenaSQL, $id)
-    {
-    	return $cadenaSQL->where('id',$id);
-    }
 }

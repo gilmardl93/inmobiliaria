@@ -12,7 +12,6 @@
         </div>
         <!-- End page header -->
  
-
         <!-- register-area -->
         <div class="register-area" style="background-color: rgb(249, 249, 249);">
             <div class="container">

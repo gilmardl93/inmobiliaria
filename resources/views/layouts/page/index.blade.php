@@ -26,8 +26,9 @@
         {!! Html::style('page/assets/css/owl.carousel.css') !!}
         {!! Html::style('page/assets/css/owl.theme.css') !!}
         {!! Html::style('page/assets/css/owl.transitions.css') !!}
+        @yield('css-style')
         {!! Html::style('page/assets/css/style.css') !!}
-        {!! Html::style('page/assets/css/style.css') !!}
+
     </head>
     <body>
 
@@ -54,6 +55,7 @@
         {!! Html::script('page/assets/js/wow.js') !!}
         {!! Html::script('page/assets/js/icheck.min.js') !!}
         {!! Html::script('page/assets/js/price-range.js') !!}
+        @yield('js-script')
         {!! Html::script('page/assets/js/main.js') !!}
 
     </body>

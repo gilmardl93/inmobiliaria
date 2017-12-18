@@ -15,7 +15,10 @@ class CreateSuscripcionsTable extends Migration
     {
         Schema::create('suscripcion', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('datos');
             $table->string('email');
+            $table->string('celular');
+            $table->dateTime('fecha_creado');
             $table->softDeletes();
             $table->timestamps();
         });

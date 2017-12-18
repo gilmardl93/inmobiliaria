@@ -5,13 +5,17 @@ namespace App\Http\Controllers\Admin\Ubigeo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Ubigeo\RegistrarRequest;
+use App\Models\MensajePropiedad;
+use App\Models\MensajeContacto;
 use App\Models\Ubigeo;
 
 class UbigeoController extends Controller
 {
     public function index()
     {
-    	return view('admin.ubigeo.index');
+        $MensajePropiedades = MensajePropiedad::orderBy('fecha_enviado', 'desc')->get();
+        $MensajeContactos   = MensajeContacto::orderBy('fecha_enviado', 'desc')->get();
+    	return view('admin.ubigeo.index', compact(['MensajePropiedades', 'MensajeContactos']));
     }
 
     public function list()
@@ -31,7 +35,9 @@ class UbigeoController extends Controller
 
     public function create()
     {
-    	return view('admin.ubigeo.create');
+        $MensajePropiedades = MensajePropiedad::orderBy('fecha_enviado', 'desc')->get();
+        $MensajeContactos   = MensajeContacto::orderBy('fecha_enviado', 'desc')->get();
+    	return view('admin.ubigeo.create', compact(['MensajePropiedades', 'MensajeContactos']));
     }
 
     public function store(RegistrarRequest $request)
@@ -43,8 +49,10 @@ class UbigeoController extends Controller
 
     public function edit($id)
     {
+        $MensajePropiedades = MensajePropiedad::all();
+        $MensajeContactos   = MensajeContacto::all();
     	$ubigeo = Ubigeo::Existe($id)->get();
-    	return view('admin.ubigeo.edit', compact('ubigeo'));
+    	return view('admin.ubigeo.edit', compact(['MensajePropiedades', 'MensajeContactos', 'ubigeo']));
     }
 
     public function update(Request $request)

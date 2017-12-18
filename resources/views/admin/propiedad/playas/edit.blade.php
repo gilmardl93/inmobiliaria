@@ -29,10 +29,13 @@
             {!! Form::hidden('img3',$row->imagen3) !!}
             {!! Form::hidden('img4',$row->imagen4) !!}
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label>Tipo</label>
                     {!! Form::select('estado', ['VENTA' => 'VENTA', 'ALQUILER' => 'ALQUILER'], $row->estado, ['class' => 'form-control']) !!}
                 </div> 
+                <div class="col-md-6">
+                    {!! Field::text('precio', $row->precio) !!}
+                </div>
                 <div class="col-md-12">
                     {!! Field::text('titulo', $row->titulo) !!}
                 </div>
@@ -112,6 +115,18 @@
             </div>
             <br>
             <div class="row">
+                <div class="col-md-3">
+                    {!! Field::text('vista', $row->vista) !!}
+                </div>
+                <div class="col-md-3">
+                    {!! Field::text('dormitorios', $row->dormitorios) !!}
+                </div>
+                <div class="col-md-3">
+                    {!! Field::text('bano_completo', $row->bano_completo, ['label' => 'Baño completo']) !!}
+                </div>
+                <div class="col-md-3">
+                    {!! Field::text('medio_bano', $row->medio_bano, ['label' => 'Medio baño']) !!}
+                </div>
                 <div class="col-md-3">
                     {!! Field::text('frente', $row->frente) !!}
                 </div>

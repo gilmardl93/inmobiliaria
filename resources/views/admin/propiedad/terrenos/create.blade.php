@@ -23,10 +23,13 @@
             <div class="portlet-body">
 			{!! Form::open(['method' => 'POST', 'route' => 'admin.terrenos.store', 'files' => true]) !!}
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label>Tipo</label>
                     {!! Form::select('estado', ['VENTA' => 'VENTA', 'ALQUILER' => 'ALQUILER'], null, ['class' => 'form-control']) !!}
                 </div> 
+                <div class="col-md-6">
+                    {!! Field::text('precio') !!}
+                </div>
                 <div class="col-md-12">
                     {!! Field::text('titulo') !!}
                 </div>
@@ -105,6 +108,18 @@
             </div>
             <br>
             <div class="row">
+                <div class="col-md-3">
+                    {!! Field::text('vista') !!}
+                </div>
+                <div class="col-md-3">
+                    {!! Field::text('dormitorios') !!}
+                </div>
+                <div class="col-md-3">
+                    {!! Field::text('bano_completo', ['label' => 'Baño completo']) !!}
+                </div>
+                <div class="col-md-3">
+                    {!! Field::text('medio_bano', ['label' => 'Medio baño']) !!}
+                </div>
                 <div class="col-md-3">
                     {!! Field::text('frente') !!}
                 </div>

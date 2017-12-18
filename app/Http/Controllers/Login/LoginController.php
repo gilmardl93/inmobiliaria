@@ -16,7 +16,21 @@ class LoginController extends Controller
     		return redirect()->route('admin.home.index');
     	}else 
     	{
-    		return back()->with('danger','Usuario y/o clave incorrecto');
+    		return back()->with('danger','Usuario y/o clave incorrecto', compact(['MensajePropiedad']));
     	}
+    }
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return redirect('/');
+    }
+
+    protected function guard()
+    {
+        return Auth::guard();
     }
 }

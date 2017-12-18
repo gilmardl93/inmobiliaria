@@ -19,6 +19,7 @@ class CreateNoticiasTable extends Migration
             $table->string('titulo');
             $table->string('imagen');
             $table->text('descripcion');
+            $table->string('fecha');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -8,6 +8,7 @@
 @stop
 
 @section('content')
+@include('admin.alerts.alert')
 <div class="row">
     <div class="col-md-12">
    		<div class="portlet light bordered">

@@ -24,16 +24,6 @@ $(document).ready(function () {
             navigation.find('li').css('width', $width + '%');
 
         },
-        onNext: function (tab, navigation, index) {
-            if (index == 1) {
-                return validateFirstStep();
-            } else if (index == 2) {
-                return validateSecondStep();
-            } else if (index == 3) {
-                return validateThirdStep();
-            } //etc. 
-
-        },
         onTabClick: function (tab, navigation, index) {
             // Disable the posibility to click on tabs
             return false;

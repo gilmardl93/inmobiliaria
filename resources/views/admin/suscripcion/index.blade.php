@@ -1,6 +1,6 @@
 @extends('layouts.admin.index')
 
-@section('titulo') CATEGORIAS @stop
+@section('titulo') SUSCRIPCION @stop
 
 @section('css-style')
 {!! Html::style('admin/assets/global/plugins/datatables/datatables.min.css') !!}
@@ -8,39 +8,26 @@
 @stop
 
 @section('content')
-    @if (session('success'))
-    <div class="alert alert-success alert-fill alert-close alert-dismissible fade show" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        {!! session('success') !!}          
-    </div>
-    @endif
 
-    @if (session('danger'))
-    <div class="alert alert-danger alert-fill alert-close alert-dismissible fade show" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        {!! session('danger') !!}           
-    </div>
-    @endif
+@include('admin.alerts.alert')
 <div class="row">
     <div class="col-md-12">
    		<div class="portlet light bordered">
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase">CATEGORIAS</span>
-                    <a href="{!! route('admin.categoria.create') !!}" class="btn dark btn-outline sbold uppercase">NUEVO</a>
+                    <span class="caption-subject bold uppercase">SUSCRIPCION</span>
                 </div>
                 <div class="tools"> </div>
             </div>
             <div class="portlet-body">
-			<table class="table table-bordered table-hover Categoria">
+			<table class="table table-bordered table-hover Suscripcion">
 			    <thead>
 			        <tr>
-			            <th> NOMBRE </th>
+			            <th> DATOS </th>
+                        <th> EMAIL </th>
+                        <th> CELULAR </th>
+                        <th> FECHA  </th>
 			            <th> ACCION </th>
 			        </tr>
 			    </thead>
@@ -60,7 +47,7 @@
 {!! Html::script('admin/assets/global/plugins/datatables/datatables.min.js') !!}
 {!! Html::script('admin/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') !!}
 <script>
-$('.Categoria').dataTable({
+$('.Suscripcion').dataTable({
     "language": {
         "emptyTable": "No hay datos disponibles",
         "info": "Mostrando _START_ a _END_ de _TOTAL_ filas",
@@ -73,7 +60,7 @@ $('.Categoria').dataTable({
                 { extend: 'colvis', className: 'btn dark btn-outline', text: 'Columns'}
             ],
     "bProcessing": true,
-    "sAjaxSource": '{{ url('categoria-data') }}',
+    "sAjaxSource": '{{ route('admin.suscripcion.list') }}',
     "pagingType": "bootstrap_full_number",
     "columnDefs": [
                 {  // set default column settings
@@ -81,17 +68,19 @@ $('.Categoria').dataTable({
                     'targets': '_all'
                 },
                 {
-                    'targets':1,
+                    'targets':4,
                     'render': function ( data, type, row ) {
                       return ' \
-                      <a href="categoria-editar/'+row.id+'" title="Editar"class="btn btn-icon-only green-haze" ><i class="fa fa-edit"></i></a> \
-                      <a href="categoria-eliminar/'+row.id+' " title="Eliminar"class="btn btn-icon-only red" ><i class="fa fa-trash"></i></a> \
+                      <a href="suscripcion-eliminar/'+row.id+'" title="Eliminar"class="btn btn-icon-only red" ><i class="fa fa-trash"></i></a> \
                       ';
                     }
                 },
             ],
     "columns": [
-            { "data": "nombre","defaultContent": "" },
+            { "data": "datos","defaultContent": "" },
+            { "data": "email","defaultContent": "" },
+            { "data": "celular","defaultContent": "" },
+            { "data": "fecha_creado","defaultContent": "" },
         ],
 });
 </script>

@@ -1,6 +1,6 @@
 @extends('layouts.admin.index')
 
-@section('titulo') CASAS @stop
+@section('titulo') TERRENOS @stop
 
 @section('css-style')
 {!! Html::style('admin/assets/global/plugins/datatables/datatables.min.css') !!}
@@ -15,7 +15,7 @@
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase">CASAS</span>
+                    <span class="caption-subject bold uppercase">TERRENOS</span>
                     <a href="{!! route('admin.terrenos.create') !!}" class="btn dark btn-outline sbold uppercase">NUEVO</a>
                 </div>
                 <div class="tools"> </div>

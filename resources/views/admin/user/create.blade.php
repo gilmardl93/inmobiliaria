@@ -17,12 +17,28 @@
             </div>
             <div class="portlet-body">
 			{!! Form::open(['method' => 'POST', 'route' => 'admin.users.store']) !!}
-            {!! Field::text('username') !!}
-            {!! Field::password('password') !!}
-            {!! Field::text('nombres') !!}
-            {!! Field::text('paterno') !!}
-            {!! Field::text('materno') !!}
-            {!! Form::submit('REGISTRAR', ['class' => 'btn blue btn-outline sbold uppercase']) !!}
+            <div class="row">
+                <div class="col-md-6">
+                    {!! Field::text('username') !!}
+                </div>
+                <div class="col-md-6">
+                    {!! Field::password('password') !!}
+                </div>
+                <div class="col-md-6">
+                    {!! Field::text('nombres') !!}
+                </div>
+                <div class="col-md-6">
+                    {!! Field::text('paterno') !!}
+                </div>
+                <div class="col-md-6">
+                    {!! Field::text('materno') !!}
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col-md-12">
+                    {!! Form::submit('REGISTRAR', ['class' => 'btn blue btn-outline sbold uppercase']) !!}
+                </div>
+            </div>             
             {!! Form::close() !!}
 			</div>
 		</div>

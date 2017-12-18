@@ -11,7 +11,7 @@
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
                     <span class="caption-subject bold uppercase">CATEGORIA</span>
-                    <a href="{!! route('admin.users.index') !!}" class="btn red btn-outline sbold uppercase">ATRAS</a>
+                    <a href="{!! route('admin.categoria.index') !!}" class="btn red btn-outline sbold uppercase">ATRAS</a>
                 </div>
                 <div class="tools"> </div>
             </div>
